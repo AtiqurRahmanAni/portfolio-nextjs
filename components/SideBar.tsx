@@ -11,14 +11,15 @@ import { FaGithub } from "react-icons/fa";
 
 function SideBar() {
   return (
-    <div className="sm:min-w-[210px]">
+    <div className="min-w-[250px] flex-1">
       <Image
         src="/mypic.jpg"
         width={200}
         height={200}
         alt="my pic"
-        style={{ width: "200px", height: "auto" }}
+        style={{ width: "200px", height: "200px" }}
         className="rounded-full mx-auto"
+        priority
       />
       <div className="mt-3">
         <div>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
-import NavBar from "@/components/NavBar/NavBar";
+import NavBar from "@/components/navBar/NavBar";
 import SideBar from "@/components/SideBar";
 
 export const metadata: Metadata = {
@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="max-w-screen-xl mx-auto p-4">
+      <body className="max-w-screen-xl mx-auto p-4 font-roboto">
         <NavBar />
         <main className="flex sm:flex-row flex-col gap-10">
           <SideBar />

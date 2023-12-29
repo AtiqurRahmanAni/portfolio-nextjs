@@ -2,8 +2,10 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { navMenuItems } from "@/constans";
+import { usePathname } from "next/navigation";
 
 function MenuItems() {
+  const pathName = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   return (
     <React.Fragment>
@@ -22,20 +24,22 @@ function MenuItems() {
         >
           <path
             stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
             d="M1 1h15M1 7h15M1 13h15"
           />
         </svg>
       </button>
       <div className={`${!isOpen && "hidden"} w-full md:block md:w-auto`}>
         <ul className="font-semibold text-2xl flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white">
-          {navMenuItems.map((item, index) => (
-            <li>
+          {navMenuItems.map((item, key) => (
+            <li key={key}>
               <Link
                 href={item.link}
-                className="block py-2 px-3 rounded md:bg-transparent md:p-0 hover:underline"
+                className={`block py-2 px-3 rounded md:bg-transparent md:p-0 hover:underline ${
+                  pathName === item.link && "underline underline-offset-2"
+                }`}
                 aria-current="page"
               >
                 {item.item}
